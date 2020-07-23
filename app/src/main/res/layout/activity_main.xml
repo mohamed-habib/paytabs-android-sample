@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.paytabssample.checkout.CheckoutViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:orientation="vertical"
+            tools:context=".checkout.CheckoutActivity">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:contentPadding="@dimen/card_view_padding">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/title"
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.transactionTitle}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Transaction Title" />
+
+                    <TextView
+                        android:id="@+id/product_name_lbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/product_name_lbl"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title" />
+
+                    <TextView
+                        android:id="@+id/product_name_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:text="@{viewModel.productName}"
+                        app:layout_constraintStart_toEndOf="@+id/product_name_lbl"
+                        app:layout_constraintTop_toBottomOf="@id/title"
+                        tools:text="16GB RAM" />
+
+                    <TextView
+                        android:id="@+id/amount_lbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/amount_lbl"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/product_name_value" />
+
+                    <TextView
+                        android:id="@+id/amount_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:text="@{String.valueOf(viewModel.amount)}"
+                        app:layout_constraintStart_toEndOf="@id/amount_lbl"
+                        app:layout_constraintTop_toBottomOf="@id/title"
+                        app:layout_constraintTop_toTopOf="@id/amount_lbl"
+                        tools:text="120" />
+
+                    <TextView
+                        android:id="@+id/amount_currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:text="@{viewModel.currencyCode}"
+                        app:layout_constraintStart_toEndOf="@+id/amount_value"
+                        app:layout_constraintTop_toTopOf="@id/amount_value"
+                        tools:text="USD" />
+
+                    <TextView
+                        android:id="@+id/order_id_lbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:text="@string/order_id_lbl"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toEndOf="@id/amount_currency"
+                        app:layout_constraintTop_toBottomOf="@id/product_name_value" />
+
+                    <TextView
+                        android:id="@+id/order_id_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:text="@{viewModel.orderId}"
+                        app:layout_constraintStart_toEndOf="@+id/order_id_lbl"
+                        app:layout_constraintTop_toTopOf="@id/amount_value"
+                        tools:text="123954" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/customer_details_lbl"
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="@string/customer_details" />
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="phone"
+                android:ems="10"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:text="@={viewModel.customerPhoneNumber}" />
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="email"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.customerEmail}" />
+
+            <TextView
+                android:id="@+id/billing_address_lbl"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/billing_address"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="address"
+                android:ems="10"
+                android:hint="@string/address"
+                android:text="@={viewModel.billingAddress.address}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="city"
+                android:ems="10"
+                android:hint="@string/city"
+                android:text="@={viewModel.billingAddress.city}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="state"
+                android:ems="10"
+                android:hint="@string/state"
+                android:text="@={viewModel.billingAddress.state}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="country"
+                android:ems="10"
+                android:hint="@string/country"
+                android:text="@={viewModel.billingAddress.country}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="postal code"
+                android:ems="10"
+                android:hint="@string/postal_code"
+                android:inputType="textPostalAddress"
+                android:text="@={viewModel.billingAddress.postalCode}" />
+
+            <TextView
+                android:id="@+id/shipping_address_lbl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/shipping_address"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="address"
+                android:ems="10"
+                android:hint="@string/address"
+                android:text="@={viewModel.shippingAddress.address}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="city"
+                android:ems="10"
+                android:hint="@string/city"
+                android:text="@={viewModel.shippingAddress.city}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="state"
+                android:ems="10"
+                android:hint="@string/state"
+                android:text="@={viewModel.shippingAddress.state}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="country"
+                android:ems="10"
+                android:hint="@string/country"
+                android:text="@={viewModel.shippingAddress.country}" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:autofillHints="postal code"
+                android:ems="10"
+                android:hint="@string/postal_code"
+                android:inputType="textPostalAddress"
+                android:text="@={viewModel.shippingAddress.postalCode}" />
+
+            <Button
+                android:id="@+id/checkout_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::doCheckout}"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:background="@color/colorAccent"
+                android:text="@string/checkout"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

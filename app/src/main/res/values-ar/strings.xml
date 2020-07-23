@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PayTabs Sample</string>
+    <string name="checkout_activity_label">صفحة الدفع</string>
+    <string name="amount_lbl">القيمة:</string>
+    <string name="product_name_lbl">إسم المنتج:</string>
+    <string name="order_id_lbl">رقم المنتج:</string>
+    <string name="city">المدينة</string>
+    <string name="postal_code">الكود البريدى</string>
+    <string name="please_enter_valid_phone_number">برجاء إدخال رقم هاتف صالح</string>
+    <string name="please_enter_valid_email_address">برجاء إدخال بريد إليكتروني صالح</string>
+    <string name="address">العنوان</string>
+    <string name="customer_name">إسم العميل</string>
+    <string name="billing_address">عنوان الدفع</string>
+    <string name="state">ولاية</string>
+    <string name="country">دولة</string>
+    <string name="email">بريد العميل</string>
+    <string name="phone_number">رقم هاتف العميل</string>
+    <string name="customer_details">بيانات العميل</string>
+    <string name="shipping_address">عنوان التوصيل</string>
+    <string name="checkout">الدفع</string>
+    <string name="please_fill_all_address_fields">برجاء ملء بيانات العنوان</string>
+    <string name="title">تم الدفع</string>
+    <string name="error">خطأ</string>
+    <string name="ok">موافق</string>
+</resources>

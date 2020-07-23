@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PayTabs Sample</string>
+    <string name="checkout_activity_label">Checkout Activity</string>
+    <string name="amount_lbl">Amount:</string>
+    <string name="product_name_lbl">Product Name:</string>
+    <string name="order_id_lbl">Order Id:</string>
+    <string name="address">Address</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="billing_address">Billing Address</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="country">Country</string>
+    <string name="email">Customer Email</string>
+    <string name="phone_number">Customer Phone Number</string>
+    <string name="customer_details">Customer Details</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="checkout">Checkout</string>
+    <string name="please_enter_valid_phone_number">Please enter valid phone number</string>
+    <string name="please_enter_valid_email_address">Please enter valid email address</string>
+    <string name="please_fill_all_address_fields">Please fill all address fields</string>
+    <string name="title">Payment Done</string>
+    <string name="error">Error</string>
+    <string name="ok">OK</string>
+</resources>
