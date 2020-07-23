@@ -10,6 +10,7 @@ import com.example.paytabssample.Keys
 import com.example.paytabssample.dto.PaymentDetails
 import com.example.paytabssample.R
 import com.paytabs.paytabs_sdk.utils.PaymentParams
+import java.util.*
 
 class CheckoutViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -23,23 +24,15 @@ class CheckoutViewModel(app: Application) : AndroidViewModel(app) {
 
     val merchantEmail = Keys.readMerchantEmail()
     val secretKey = Keys.readSecretKey()
-    val language = PaymentParams.ENGLISH
+    val language = Locale.getDefault().language
 
     val isTokenization = true
 
     val customerEmail = MutableLiveData<String>()
     val customerPhoneNumber = MutableLiveData<String>()
 
-    init {
-        customerPhoneNumber.value = "009733"
-        customerEmail.value = "customer-email@example.com"
-
-    }
-
-    val billingAddress =
-        Address("Flat 1,Building 123, Road 2345", "Manama", "Manama", "BHR", "00973")
-    val shippingAddress =
-        Address("Flat 1,Building 123, Road 2345", "Manama", "Manama", "BHR", "00973")
+    val billingAddress = Address()
+    val shippingAddress = Address()
 
     fun doCheckout(view: View) {
 
